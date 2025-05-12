@@ -79,6 +79,14 @@ class Decoder {
             }
         }
 
+        // Alpha
+        $alphaEnabled = ($bytes[13] & 64) === 64;
+        if ($alphaEnabled) {
+            $alpha = $bytes[7];
+        } else {
+            $alpha = 200; // Default alpha value
+        }
+
         // Create crosshair object
         return new Crosshair(
             ($bytes[13] & 14) >> 1,                   // style
@@ -91,8 +99,8 @@ class Decoder {
             $red,                                     // red
             $green,                                   // green
             $blue,                                    // blue
-            ($bytes[13] & 64) === 64,                 // alphaEnabled
-            $bytes[7],                                // alpha
+            $alphaEnabled,                            // alphaEnabled
+            $alpha,                                   // alpha
             $bytes[8] & 127,                          // splitDistance
             self::decodeSignedByte($bytes[9]) / 10.0, // fixedCrosshairGap
             $colorIndex,                              // color

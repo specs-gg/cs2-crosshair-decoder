@@ -72,7 +72,7 @@ class SvgGenerator {
 
         // Left rect
         $innerRects[] = [
-            'x' => -($length + $gap + $thickness + $correction),
+            'x' => -($length + $gap + $thicknessTimesTwo + $correction),
             'y' => -$thickness,
             'width' => $length,
             'height' => $thicknessTimesTwo,
@@ -80,7 +80,7 @@ class SvgGenerator {
 
         // Right rect
         $innerRects[] = [
-            'x' => $gap + $thickness + $correction,
+            'x' => $gap + $thicknessTimesTwo + $correction,
             'y' => -$thickness,
             'width' => $length,
             'height' => $thicknessTimesTwo,
@@ -90,7 +90,7 @@ class SvgGenerator {
         if (!$isTStyle) {
             $innerRects[] = [
                 'x' => -$thickness,
-                'y' => -($length + $gap + $thickness + $correction),
+                'y' => -($length + $gap + $thicknessTimesTwo + $correction),
                 'width' => $thicknessTimesTwo,
                 'height' => $length,
             ];
@@ -99,7 +99,7 @@ class SvgGenerator {
         // Bottom rect
         $innerRects[] = [
             'x' => -$thickness,
-            'y' => $gap + $thickness + $correction,
+            'y' => $gap + $thicknessTimesTwo + $correction,
             'width' => $thicknessTimesTwo,
             'height' => $length,
         ];

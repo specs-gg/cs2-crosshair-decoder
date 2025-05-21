@@ -15,9 +15,9 @@ class SvgGenerator {
         $correction = 3 * self::SCALE_FACTOR;
         // Define SVG canvas with calculated dimensions
         $width = $length * 4;
-        $width += $thickness * 2;
+        $width += $thickness * 4;
         $width += $gap * 2;
-        $width += $outline * 2;
+        $width += $outline * 2 * $crosshair->HasOutline;
         $width += $correction * 2;
         $height = $width;
         $viewBoxX = $viewBoxY = $width * - 0.5;
